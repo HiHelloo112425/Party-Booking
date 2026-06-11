@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Speedee";
+  src: url("./assets/fonts/speedee_regular.TTF") format("truetype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Speedee";
+  src: url("./assets/fonts/speedee_bold.TTF") format("truetype");
+  font-weight: 700;
+}
+
+@theme {
+  --color-primary-red: #db0007;
+  --color-primary-gray: #f6f6f6;
+
+  --font-speedee: "Speedee", sans-serif;
+
+  --animate-float: float 3s ease-in-out infinite;
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-12px);
+    }
+  }
+}
+
+@layer base {
+  body {
+    font-family: var(--font-speedee);
+  }
+}
