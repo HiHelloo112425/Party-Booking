@@ -15,20 +15,38 @@
 @theme {
   --color-primary-red: #db0007;
   --color-primary-gray: #f6f6f6;
+  --color-primary-yellow: #F7BA00;
 
   --font-speedee: "Speedee", sans-serif;
 
   --animate-float: float 3s ease-in-out infinite;
 
   @keyframes float {
-    0%,
-    100% {
+    0%, 100% {
       transform: translateY(0px);
     }
     50% {
       transform: translateY(-12px);
     }
   }
+
+--animate-sway: sway 2.5s ease-in-out infinite;
+
+@keyframes sway {
+  0%, 100% {
+    transform: skewX(-4deg) translateX(0px) scaleY(1);
+  }
+  25% {
+    transform: skewX(2deg) translateX(6px) scaleY(0.98);
+  }
+  50% {
+    transform: skewX(4deg) translateX(10px) scaleY(0.96);
+  }
+  75% {
+    transform: skewX(2deg) translateX(6px) scaleY(0.98);
+  }
+}
+
 }
 
 @layer base {

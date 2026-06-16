@@ -65,7 +65,7 @@ function Booking() {
         </div>
 
         {/* BOTTOM TEXT */}
-        <div className="mt-auto pb-5 text-[12px] lg:text-[0.8vw] select-none">
+        <div className="text-center mt-auto pb-5 text-[12px] lg:text-[0.8vw] select-none">
           <p>
             Party packages need a minimum of <b>30 guests</b> | A{" "}
             <b>Php 2,500 down payment</b> is required to secure booking at
