@@ -85,7 +85,7 @@ function HomePage() {
             Screen :: {screen} width :: {screenSizeWidth}
           </p>
         </div>
-        <div className="w-full h-100"></div>
+        {/* <div className="w-full h-100"></div> */}
       </div>
     </div>
   );
