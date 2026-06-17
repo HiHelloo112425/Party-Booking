@@ -4,6 +4,7 @@ import McDoLogo from "../assets/mcdo-logo.png";
 import Button from "../components/Button.jsx";
 import Booking from "../components/Booking.jsx";
 import Description from "../components/Description.jsx";
+import ThemePromo from "../components/ThemePromo.jsx"
 
 function HomePage() {
   const [screen, setScreen] = useState("mobile");
@@ -77,9 +78,10 @@ function HomePage() {
 
       <div className="flex flex-col w-full">
         <Booking />
-        {/* DEBUG — tanggalin na kapag tapos na */}
-
         <Description />
+        <ThemePromo />
+
+        {/* DEBUG — tanggalin na kapag tapos na */}
         <div className="mb-auto">
           <p>
             Screen :: {screen} width :: {screenSizeWidth}

@@ -9,8 +9,8 @@ import BaloonLeft from "../assets/balloons-left.svg";
 
 function Booking() {
    return (
-      <div className="w-full h-[150vw] lg:h-[40vw] overflow-hidden">
-        <div className="relative h-[150vw] md:h-[65vw] lg:h-[40vw] bg-primary-gray">
+      <div className="w-full h-[150vw] md:h-[70vw] lg:h-[40vw] overflow-hidden">
+        <div className="relative h-[150vw] md:h-[70vw] lg:h-[40vw] bg-primary-gray">
           <img
             src={Confetti}
             className="absolute inset-0 w-full h-full object-cover z-0 select-none pointer-events-none"

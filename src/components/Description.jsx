@@ -12,7 +12,7 @@ import McBg from "../assets/mc-bg.svg";
 
 function Description() {
   return (
-    <div className="h-[450vw] lg:w-full lg:h-[115vw] overflow-hidden">
+    <div className="h-[450vw] sm:h-[350vw] md:h-[300vw] lg:w-full lg:h-[115vw] overflow-hidden">
       <div className="relative w-full h-[200vw] lg:h-[100vw] xl:h-[85vw] 2xl:h-[75vw] bg-primary-gray">
         <div
           className="absolute bottom-0 w-full h-full bg-cover bg-center bg-repeat z-10"
@@ -20,7 +20,7 @@ function Description() {
         />
         <img
           src={CurveVerctor}
-          className="absolute w-full h-[50vw] md:h-[40vw] xl:h-[30vw] object-cover object-bottom z-10 select-none pointer-events-none"
+          className="absolute w-full h-[50vw] md:h-[40vw] xl:h-[35vw] object-cover object-bottom z-10 select-none pointer-events-none"
         />
 
         <div className="absolute inset-0 z-30 pointer-events-auto lg:w-full">
@@ -36,7 +36,7 @@ function Description() {
 
             {/* SECTION 1 - IMAGE + TEXT */}
             <div className="flex flex-col lg:flex-row justify-evenly items-center lg:items-start gap-5 px-[4vw] lg:px-0">
-              <div className="self-center w-75 md:w-100 lg:w-120 2xl:w-150 lg:self-end mt-10 lg:mt-20 relative">
+              <div className="self-center w-75 md:w-100 lg:w-120 xl:w-150 lg:self-end mt-10 lg:mt-20 relative">
                 <div className="absolute inset-0 w-full h-full bg-primary-yellow rounded-3xl border-4 border-white -rotate-3 translate-x-2 translate-y-2 z-0" />
                 <img
                   src={GroupImg}
@@ -46,14 +46,14 @@ function Description() {
 
               <div className="flex flex-col text-center lg:text-start h-full pt-[1vw] lg:pt-[0.10vw]">
                 <div className="lg:w-100 xl:w-150">
-                  <div className="font-bold text-[6.25vw] lg:text-[35px] 2xl:text-[48px]">
+                  <div className="font-bold text-[6.25vw] lg:text-[35px] xl:text-[48px]">
                     <h1 className="flex-wrap gap-3 ">
                       Celebrate{" "}
                       <span className="text-primary-red"> Big Moments</span>
                     </h1>
                     <h1>with McDonald's</h1>
                   </div>
-                  <div className="text-[3vw] lg:text-[15px] 2xl:text-[18px] mt-[2vw] lg:mt-0">
+                  <div className="text-[3vw] lg:text-[15px] lg:mt-0 xl:text-[18px] mt-[2vw] ">
                     <p>
                       At McDonald's, we believe every celebration should be
                       filled with joy, not stress. Our party packages are
@@ -82,7 +82,7 @@ function Description() {
 
             <div className="flex flex-col lg:flex-row justify-evenly items-center mb-25 lg:items-start gap-5 mt-[8vw] lg:mt-30 px-[4vw] lg:px-0">
               <div className="md:px-5 xl:px-0 flex flex-col w-full lg:w-148">
-                <div className="font-bold text-[6.25vw] text-center lg:text-start lg:text-[35px] 2xl:text-[48px]">
+                <div className="font-bold text-[6.25vw] text-center lg:text-start lg:text-[35px] xl:text-[48px]">
                   <h1>Every McDonald's</h1>
                   <h1 className="gap-3">
                     <span className="text-primary-red">Party Package</span>{" "}
@@ -90,7 +90,7 @@ function Description() {
                   </h1>
                 </div>
 
-                <div className="text-gray-700 text-[3vw] lg:text-[15px] 2xl:text-[18px]">
+                <div className="text-gray-700 text-[3vw] lg:text-[15px] xl:text-[18px]">
                   <ul className="space-y-1 mt-[2vw] lg:mt-0">
                     {[
                       "Decorated Party Room: A festive space ready for fun!",
@@ -119,7 +119,7 @@ function Description() {
             </div>
 
             {/* SECTION 3 - STEPS */}
-            <div className="absolute z-20 w-full top-[110vw] sm:top-[35vw] md:top-[70vw] lg:top-[45vw] xl:top-[25vw] 2xl:top-[16vw] left-0">
+            <div className="absolute z-20 w-full top-[110vw] sm:top-[75vw] md:top-[115vw] lg:top-[45vw] xl:top-[25vw] 2xl:top-[16vw] left-0">
               <img
                 src={Wave}
                 className="absolute top-[160vw] md:top-[120vw] lg:top-[55vw] left-0 w-full z-10 select-none pointer-events-none"
@@ -170,7 +170,7 @@ function Description() {
                   ].map((card, i) => (
                     <div
                       key={i}
-                      className={`rounded-2xl w-full h-[46vw] sm:h-[25vw] md:h-[40vw] md:w-[25vw] lg:w-[25vw] lg:h-58 ${card.bg}`}
+                      className={`rounded-2xl w-full h-[46vw] sm:h-[25vw] md:h-[40vw] md:w-[25vw] lg:w-[25vw] lg:h-50 ${card.bg}`}
                     >
                       <div className="flex flex-col md:gap-3">
                         <div className="flex flex-row w-full justify-center lg:justify-start ">
