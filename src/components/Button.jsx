@@ -1,4 +1,11 @@
-function Button({ children, onClick, bgColor, textColor, addBoader }) {
+function Button({
+  children,
+  onClick,
+  bgColor,
+  textColor,
+  addBoader,
+  widthSize,
+}) {
   let boarder = "";
 
   if (addBoader) {
@@ -7,7 +14,7 @@ function Button({ children, onClick, bgColor, textColor, addBoader }) {
   return (
     <button
       onClick={onClick}
-      className={`px-4 py-2 rounded-md ${bgColor} ${textColor} ${boarder} font-bold text-[16px]`}
+      className={`px-4 py-2 rounded-md ${bgColor} ${textColor} ${boarder} font-bold text-[16px] cursor-pointer ${widthSize} transition-transform duration-200 hover:-translate-y-0.5`}
     >
       {children}
     </button>

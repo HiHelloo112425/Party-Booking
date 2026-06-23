@@ -13,7 +13,7 @@ import McBg from "../assets/mc-bg.svg";
 function Description() {
   return (
     <div className="h-[450vw] sm:h-[350vw] md:h-[300vw] lg:w-full lg:h-[115vw] overflow-hidden">
-      <div className="relative w-full h-[200vw] lg:h-[100vw] xl:h-[85vw] 2xl:h-[75vw] bg-primary-gray">
+      <div className="relative w-full h-[200vw] lg:h-[100vw] xl:h-[85vw] 2xl:h-[75vw]">
         <div
           className="absolute bottom-0 w-full h-full bg-cover bg-center bg-repeat z-10"
           style={{ backgroundImage: `url(${McBg})` }}

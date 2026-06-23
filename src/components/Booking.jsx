@@ -9,8 +9,8 @@ import BaloonLeft from "../assets/balloons-left.svg";
 
 function Booking() {
    return (
-      <div className="w-full h-[150vw] md:h-[70vw] lg:h-[40vw] overflow-hidden">
-        <div className="relative h-[150vw] md:h-[70vw] lg:h-[40vw] bg-primary-gray">
+      <div className="w-full h-[150vw] md:h-[70vw] lg:h-[40vw] overflow-hidden bg-light-gray">
+        <div className="relative h-[150vw] md:h-[70vw] lg:h-[40vw]">
           <img
             src={Confetti}
             className="absolute inset-0 w-full h-full object-cover z-0 select-none pointer-events-none"
@@ -128,7 +128,7 @@ function Booking() {
           </div>
   
           {/* BOTTOM TEXT */}
-          <div className="text-center mt-auto pb-5 text-[12px] lg:text-[0.8vw] select-none">
+          <div className="mt-auto pb-10 text-[12px] lg:text-[0.7vw] select-none">
             <p>
               Party packages need a minimum of <b>30 guests</b> | A{" "}
               <b>Php 2,500 down payment</b> is required to secure booking at
