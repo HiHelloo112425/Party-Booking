@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from "react";
 import { Menu } from "lucide-react";
 import McDoLogo from "../assets/mcdo-logo.svg";
 import Button from "../components/Button.jsx";
@@ -10,28 +9,10 @@ import { Mail, Phone } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 function HomePage() {
-  const [screen, setScreen] = useState("mobile");
-  const [screenSizeWidth, setScreenSizeWidth] = useState(window.innerWidth);
   const navigate = useNavigate();
-  useEffect(() => {
-    const handleResize = () => {
-      const width = window.innerWidth;
-      setScreenSizeWidth(width);
-      if (width >= 1536) setScreen("2xl");
-      else if (width >= 1280) setScreen("xl");
-      else if (width >= 1024) setScreen("lg");
-      else if (width >= 768) setScreen("md");
-      else if (width >= 640) setScreen("sm");
-      else setScreen("xs");
-    };
-
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-gray-100 select-none">
       {/* HEADER */}
       <header className="font-bold text-gray-700 bg-white flex justify-between items-center px-4 sm:px-6 md:px-10 lg:px-[3vw] py-4 lg:py-[1vw] w-full text-[14px] lg:text-[1vw]">
         {/* DESKTOP NAV */}
@@ -95,7 +76,7 @@ function HomePage() {
 
       <footer>
         <div className="flex flex-col w-full bg-dark-charcoal-gray text-white">
-          <div className="md:hidden w-full justify-center py-5 ms-5">
+          <div className="md:hidden w-full justify-center py-5 px-5">
             <p>
               <span className="font-bold">McDonald's</span> Party Booking
               Philippines
@@ -151,17 +132,12 @@ function HomePage() {
             </div>
           </div>
           <hr className="mx-30 border-[#6A6A6A33]" />
-          <div className="flex md:justify-center w-full lg:ps-30 py-5">
-            © 2026 McDonald's Philippines. All rights reserved.
+          <div className="flex md:justify-center w-full py-5">
+            © {new Date().getFullYear()} McDonald's Philippines. All rights
+            reserved.
           </div>
         </div>
       </footer>
-
-      <div>
-        <p className="w-full">
-          Width: {screenSizeWidth} Screen: {screen}
-        </p>
-      </div>
     </div>
   );
 }
