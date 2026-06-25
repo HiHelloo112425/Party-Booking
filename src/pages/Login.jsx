@@ -56,14 +56,14 @@ function LoginPage() {
   }, [loginStatus, navigate]);
 
   return (
-    <div className="flex flex-col justify-center items-center p-25 select-none">
+    <div className="flex flex-col justify-center pt-10 items-center select-none">
       <ToastMessage
         ref={toastRef}
         toastStatus={"error"}
         toastMessage={loginStatus}
       />
 
-      <div className="w-90 flex flex-col gap-10 animate-fade-up">
+      <div className="w-90 flex flex-col gap-10 animate-fade-up border border-gray-200 px-5 py-10 rounded-2xl shadow-lg">
         <div className="flex flex-col justify-center items-center gap-10">
           <img src={McLog} className="w-[78.46px]" />
           <h1 className="font-bold text-[30px]">Log in to your account</h1>

@@ -10,7 +10,6 @@ import { useNavigate } from "react-router-dom";
 
 function HomePage() {
   const navigate = useNavigate();
-
   return (
     <div className="min-h-screen bg-gray-100 select-none">
       {/* HEADER */}
@@ -67,7 +66,7 @@ function HomePage() {
 
       <div className="flex flex-col w-full">
         <div className="bg-white">
-          <Booking />
+          <Booking bookPartyClick={() => navigate("/home/booking")} />
           <Description />
           <ThemePromo />
           <PartyBookingInfo />

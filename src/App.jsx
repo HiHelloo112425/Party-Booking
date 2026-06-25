@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import HomePage from "./pages/Home";
 import LoginPage from "./pages/Login";
 import CreateAccount from "./pages/CreateAccount";
+import BookingForm from "./pages/BookingForm";
 import Profile from "./pages/Profile";
 import { Routes, Route } from "react-router-dom";
 
@@ -28,18 +29,18 @@ function App() {
 
   return (
     <div>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/signup" element={<CreateAccount />} />
-        <Route path="/profile" element={<Profile />} />
-      </Routes>
-
       <div>
         <p className="w-full">
           Width: {screenSizeWidth} Screen: {screen}
         </p>
       </div>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<CreateAccount />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/home/booking" element={<BookingForm />} />
+      </Routes>
     </div>
   );
 }
