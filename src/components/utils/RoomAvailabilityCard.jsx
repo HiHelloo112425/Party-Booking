@@ -50,15 +50,14 @@ function RoomAvailabilityCard() {
           ))}
         </div>
       </CustomModal>
-
-      <div className="flex flex-row w-full border border-gray-400 rounded-2xl">
-        <div className="w-4 self-stretch bg-primary-red rounded-s-2xl" />
-        <div className="flex p-5 items-center gap-20">
-          <div className="flex flex-col">
+      <div className="flex flex-row w-full border border-gray-400 rounded-2xl overflow-hidden shadow-2xl">
+        <div className="hidden sm:block w-4 self-stretch bg-primary-red rounded-s-2xl" />
+        <div className="flex flex-col-reverse xl:flex-row w-full p-5 justify-between items-center gap-10">
+          <div className="flex flex-col w-full">
             <div>
               <h1 className="text-[24px] font-bold">Party Room A</h1>
             </div>
-            <div className="flex flex-col gap-20">
+            <div className="flex flex-col gap-15 xl:gap-20">
               <div className="flex flex-col gap-4">
                 <div className="flex items-center gap-5">
                   <div className="flex gap-2">
@@ -67,30 +66,18 @@ function RoomAvailabilityCard() {
                   </div>
                   <div className="text-[16px] pt-1 font-bold">80 people</div>
                 </div>
-                <div
-                  className={`flex ${assignTime != null ? "justify-center items-center" : "justify-normal"}  gap-5`}
-                >
+                <div className={`flex justify-normal  gap-5`}>
                   <div className="flex gap-2">
                     <Clock3 />
-                    <p className="text-[16px] pt-1">
-                      {" "}
-                      {assignTime != null ? "Selected Time" : "Timeslots:"}
-                    </p>
+                    <p className="text-[16px] pt-1">Selected Time</p>
                   </div>
                   {assignTime != null ? (
-                    <div className="flex justify-center text-[#067647] border border-green-400 items-center text-[16px] bg-[#ABEFC6] p-2 rounded-2xl text-center">
+                    <div className="flex justify-center text-[#067647] border border-green-400 items-center text-[10px] bg-[#ABEFC6] p-2 rounded-2xl text-center">
                       {assignTime.start} - {assignTime.end}
                     </div>
                   ) : (
-                    <div className="grid grid-cols-2 gap-2">
-                      {timeSlots.map((timeSlot) => (
-                        <div
-                          key={timeSlot.id}
-                          className="flex justify-center text-yellow-500 border border-yellow-500 items-center text-[16px] bg-[#FFEFAA] p-2 rounded-2xl text-center"
-                        >
-                          {timeSlot.start} - {timeSlot.end}
-                        </div>
-                      ))}
+                    <div>
+                      <p>--:-- - --:--</p>
                     </div>
                   )}
                 </div>
@@ -111,10 +98,7 @@ function RoomAvailabilityCard() {
               </div>
             </div>
           </div>
-
-          <div className="w-100">
-            <img src={Room} />
-          </div>
+          <img src={Room} className="w-100 xl:w-80" />
         </div>
       </div>
     </div>

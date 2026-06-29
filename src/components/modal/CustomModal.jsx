@@ -30,7 +30,7 @@ function CustomModal({ isOpen, onClose, title, children, onConfirm }) {
           transition: "transform 200ms ease, opacity 200ms ease",
         }}
       >
-        {/* Header */}
+
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-lg font-semibold text-gray-900">{title}</h2>
           <button
@@ -41,10 +41,8 @@ function CustomModal({ isOpen, onClose, title, children, onConfirm }) {
           </button>
         </div>
 
-        {/* Body */}
         <div className="text-gray-600 text-sm">{children}</div>
 
-        {/* Footer */}
         <div className="flex justify-end gap-2 mt-6">
           <Button
             bgColor="bg-white"
