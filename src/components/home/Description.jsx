@@ -1,14 +1,14 @@
-import GroupImg from "../assets/group-img.png";
-import DownDouble from "../assets/chevron-down-double.svg";
-import Meal from "../assets/Meal.svg";
-import Wave from "../assets/wave.svg";
-import BandaritasL from "../assets/bandaritas-l.svg";
-import BandaritasR from "../assets/bandaritas-r.svg";
-import IconBranch from "../assets/icon-branch.svg";
-import IconGift from "../assets/icon-gift.svg";
-import IconCC from "../assets/icon-cc.svg";
-import CurveVerctor from "../assets/curve-vector.svg";
-import McBg from "../assets/mc-bg.svg";
+import GroupImg from "../../assets/group-img.png";
+import DownDouble from "../../assets/chevron-down-double.svg";
+import Meal from "../../assets/Meal.svg";
+import Wave from "../../assets/wave.svg";
+import BandaritasL from "../../assets/bandaritas-l.svg";
+import BandaritasR from "../../assets/bandaritas-r.svg";
+import IconBranch from "../../assets/icon-branch.svg";
+import IconGift from "../../assets/icon-gift.svg";
+import IconCC from "../../assets/icon-cc.svg";
+import CurveVerctor from "../../assets/curve-vector.svg";
+import McBg from "../../assets/mc-bg.svg";
 
 function Description() {
   return (
@@ -48,7 +48,7 @@ function Description() {
                 <div className="lg:w-100 xl:w-150">
                   <div className="font-bold text-[6.25vw] lg:text-[35px] xl:text-[48px]">
                     <h1 className="flex-wrap gap-3 ">
-                      Celebrate{" "}
+                      Celebrate
                       <span className="text-primary-red"> Big Moments</span>
                     </h1>
                     <h1>with McDonald's</h1>
@@ -60,7 +60,7 @@ function Description() {
                       designed to make planning effortless, so you can focus on
                       what truly matters:
                       <b>
-                        {" "}
+                        
                         creating unforgettable memories with your loved ones.
                       </b>
                     </p>
@@ -85,7 +85,7 @@ function Description() {
                 <div className="font-bold text-[6.25vw] text-center lg:text-start lg:text-[35px] xl:text-[48px]">
                   <h1>Every McDonald's</h1>
                   <h1 className="gap-3">
-                    <span className="text-primary-red">Party Package</span>{" "}
+                    <span className="text-primary-red">Party Package</span>
                     Includes:
                   </h1>
                 </div>
@@ -135,7 +135,7 @@ function Description() {
 
               <div className="relative flex flex-col w-full justify-center items-center top-[170vw] md:top-[126vw] lg:top-[63vw] gap-[3vw] lg:gap-13 xl:gap-20 px-[4vw] lg:px-0 z-30">
                 <h1 className="flex flex-row flex-wrap justify-center text-[4vw] gap-2 mx-20 md:mx-25 lg:mx-0 font-bold  md:text-[3vw] lg:text-[2.3vw] 2xl:text-[2.15vw] text-center">
-                  Your McDonald's Party in a{" "}
+                  Your McDonald's Party in a
                   <span className="text-primary-red">Few Simple Steps!</span>
                 </h1>
                 <div className="flex flex-col md:flex-row gap-5 md:gap-10">
@@ -189,7 +189,7 @@ function Description() {
                           </div>
                           <div className="mx-5 lg:ml-3 lg:mr-18">
                             <p>{card.content}</p>
-                          </div>{" "}
+                          </div>
                         </div>
                       </div>
                     </div>

@@ -1,17 +1,31 @@
-import { Menu } from "lucide-react";
+import { Menu, Mail, Phone } from "lucide-react";
 import McDoLogo from "../assets/mcdo-logo.svg";
 import Button from "../components/Button.jsx";
-import Booking from "../components/Booking.jsx";
-import Description from "../components/Description.jsx";
-import ThemePromo from "../components/ThemePromo.jsx";
-import PartyBookingInfo from "../components/PartyBookingInfo.jsx";
-import { Mail, Phone } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import Booking from "../components/home/Booking.jsx";
+import Description from "../components/home/Description.jsx";
+import ThemePromo from "../components/home/ThemePromo.jsx";
+import PartyBookingInfo from "../components/home/PartyBookingInfo.jsx";
+
+import ToastMessage from "../components/utils/ToastMessage.jsx";
+import { useHome } from "../hooks/useHome.js";
 
 function HomePage() {
-  const navigate = useNavigate();
+  const {
+    bookingSchedule,
+    updateSchedule,
+    toastRef,
+    navigateToBooking,
+    navigateToLogin,
+    carouselData,
+  } = useHome();
   return (
     <div className="min-h-screen bg-gray-100 select-none">
+      <ToastMessage
+        ref={toastRef}
+        toastStatus={"error"}
+        toastMessage={"Please set where and when!"}
+      />
+
       {/* HEADER */}
       <header className="font-bold text-gray-700 bg-white flex justify-between items-center px-4 sm:px-6 md:px-10 lg:px-[3vw] py-4 lg:py-[1vw] w-full text-[14px] lg:text-[1vw]">
         {/* DESKTOP NAV */}
@@ -37,15 +51,15 @@ function HomePage() {
           <Button
             bgColor="bg-white"
             textColor="text-black"
-            addBoader={true}
-            onClick={() => navigate("/login")}
+            borderColor="border border-gray-200"
+            onClick={navigateToLogin}
           >
             Log in
           </Button>
           <Button
             bgColor="bg-primary-red"
             textColor="text-white"
-            addBoader={false}
+            borderColor={false}
           >
             Sign up
           </Button>
@@ -64,11 +78,15 @@ function HomePage() {
         </div>
       </header>
 
-      <div className="flex flex-col w-full">
+      <div className="flex flex-col w-full animate-fade-up">
         <div className="bg-white">
-          <Booking bookPartyClick={() => navigate("/home/booking")} />
+          <Booking
+            bookPartyClick={navigateToBooking}
+            updateSchedule={updateSchedule}
+            bookingSchedule={bookingSchedule}
+          />
           <Description />
-          <ThemePromo />
+          <ThemePromo carouselData={carouselData} />
           <PartyBookingInfo />
         </div>
       </div>

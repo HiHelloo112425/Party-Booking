@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, forwardRef, useImperativeHandle } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-function Carousel({ items = [] }) {
+const Carousel = forwardRef(({ items = [], width, showButton }, ref) => {
   const [current, setCurrent] = useState(0);
 
   // Use 2 items on md, 3 on lg
@@ -25,9 +25,15 @@ function Carousel({ items = [] }) {
   const prev = () => setCurrent((i) => (i === 0 ? maxIndex : i - 1));
   const next = () => setCurrent((i) => (i >= maxIndex ? 0 : i + 1));
 
+  // expose prev/next so the parent can trigger them via ref
+  useImperativeHandle(ref, () => ({
+    prev,
+    next,
+  }));
+
   return (
     <div className="relative w-full">
-      <div className="overflow-hidden w-[78vw] mx-auto">
+      <div className={`overflow-hidden ${width} mx-auto`}>
         <div
           className="flex transition-transform duration-500 items-stretch"
           style={{
@@ -61,21 +67,23 @@ function Carousel({ items = [] }) {
           ))}
         </div>
       </div>
-
-      <button
-        onClick={prev}
-        className="absolute left-5 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white w-9 h-9 rounded-full flex items-center justify-center z-10 cursor-pointer"
+      <div className={`${showButton ? "block" : "hidden"}`}>
+        <button
+          onClick={prev}
+          className="absolute left-5 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white w-9 h-9 rounded-full flex items-center justify-center z-10 cursor-pointer"
+        >
+          <ChevronLeft size={20} />
+        </button>
+        <button
+          onClick={next}
+          className="absolute right-5 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white w-9 h-9 rounded-full flex items-center justify-center z-10 cursor-pointer"
+        >
+          <ChevronRight size={20} />
+        </button>
+      </div>
+      <div
+        className={`${showButton ? "block" : "hidden"} flex justify-center gap-2 mt-4`}
       >
-        <ChevronLeft size={20} />
-      </button>
-      <button
-        onClick={next}
-        className="absolute right-5 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white w-9 h-9 rounded-full flex items-center justify-center z-10 cursor-pointer"
-      >
-        <ChevronRight size={20} />
-      </button>
-
-      <div className="flex justify-center gap-2 mt-4">
         {items.slice(0, items.length - (itemsPerView - 1)).map((_, i) => (
           <button
             key={i}
@@ -88,6 +96,6 @@ function Carousel({ items = [] }) {
       </div>
     </div>
   );
-}
+});
 
 export default Carousel;

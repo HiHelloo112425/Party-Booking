@@ -4,6 +4,8 @@ import LoginPage from "./pages/Login";
 import CreateAccount from "./pages/CreateAccount";
 import BookingForm from "./pages/BookingForm";
 import Profile from "./pages/Profile";
+import ForgetPassword from "./pages/ForgetPassword.jsx";
+import ResetPassowrd from "./pages/ResetPassword.jsx";
 import { Routes, Route } from "react-router-dom";
 
 function App() {
@@ -40,6 +42,8 @@ function App() {
         <Route path="/signup" element={<CreateAccount />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/home/booking" element={<BookingForm />} />
+        <Route path="/login/forgetpassword" element={<ForgetPassword />} />
+        <Route path="/resetpassword" element={<ResetPassowrd />} />
       </Routes>
     </div>
   );

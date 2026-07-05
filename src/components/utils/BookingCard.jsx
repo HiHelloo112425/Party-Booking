@@ -35,7 +35,6 @@ function BookingCard() {
                 {item.text}
                 {item.sub && (
                   <>
-                    {" "}
                     <span className="text-text-gray">·</span> {item.sub}
                   </>
                 )}
@@ -54,7 +53,7 @@ function BookingCard() {
           <Button
             bgColor="bg-white"
             textColor="text-black"
-            addBoader={true}
+            borderColor="border border-gray-200"
             widthSize="w-35"
           >
             View Details

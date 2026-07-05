@@ -1,10 +1,20 @@
-import Button from "./Button";
-import VenueCard from "./utils/VenueCard";
-import RoomAvailabilityCard from "./utils/RoomAvailabilityCard";
+import Button from "../../components/Button";
+import VenueCard from "./schedule-booking/VenueCard.jsx";
+import RoomAvailabilityCard from "./schedule-booking/RoomAvailabilityCard.jsx";
+import NoAvailableBooking from "./schedule-booking/NoAvailableBooking.jsx";
+import { formatDate } from "../utils/helper/formatDate";
 import { MapPin, Calendar, Pencil, ChevronDown, Space } from "lucide-react";
-function ScheduleBooking({ onConfirm }) {
+
+function ScheduleBooking({
+  onConfirm,
+  isAvailable,
+  schedule,
+  setOpen,
+  assignTime,
+  availableDateAndTime,
+}) {
   return (
-    <div className="flex flex-col justify-center items-center w-full lg:w-full gap-10">
+    <div className="flex flex-col justify-center items-center w-full lg:w-full gap-10 animate-fade-up">
       <div className="flex flex-col justify-center items-center w-full lg:w-full gap-10 border sm:border-0 border-[#E5E7EB] rounded-2xl p-5 sm:p-0 shadow-lg sm:shadow-none">
         <div className="flex-1 w-full justify-start">
           <h1 className="text-[24px] font-bold">Even details</h1>
@@ -19,7 +29,7 @@ function ScheduleBooking({ onConfirm }) {
               <p className="font-bold">Location:</p>
             </div>
 
-            <p>Quezon City, Metro Manila</p>
+            <p>{schedule.venue}</p>
           </div>
 
           <div className="flex sm:flex-col xl:flex-row gap-2">
@@ -28,12 +38,12 @@ function ScheduleBooking({ onConfirm }) {
               <p className="font-bold">Date:</p>
             </div>
 
-            <p>July 14, 2026</p>
+            <p>{formatDate(schedule.date)}</p>
           </div>
           <Button
             bgColor="bg-white"
             textColor="text-black"
-            addBoader={true}
+            borderColor="border border-gray-200"
             widthSize="w-auto"
             onClick={() => {}}
           >
@@ -70,7 +80,7 @@ function ScheduleBooking({ onConfirm }) {
             </div>
             <div className="mt-5">
               <p>
-                Party packages need a{" "}
+                Party packages need a
                 <span className="font-bold">minimum of 30 guests</span>
               </p>
             </div>
@@ -78,46 +88,55 @@ function ScheduleBooking({ onConfirm }) {
         </div>
       </div>
 
-      <hr className="w-full border-gray-300" />
-      <div className="flex flex-col w-full gap-10">
-        <div className="flex flex-col gap-10">
-          <div>
-            <h1 className="text-[24px] font-bold">Venue Information</h1>
-            <p>
-              Choose your preferred McDonald's branch and available time slot
-            </p>
+      {isAvailable ? (
+        <div className="flex flex-col gap-10 w-full">
+          <hr className="w-full border-gray-300" />
+          <div className="flex flex-col w-full gap-10">
+            <div className="flex flex-col gap-10">
+              <div>
+                <h1 className="text-[24px] font-bold">Venue Information</h1>
+                <p>
+                  Choose your preferred McDonald's branch and available time
+                  slot
+                </p>
+              </div>
+              <div>
+                <VenueCard />
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-5">
+              <h1 className="text-[24px] font-bold">Room Availability</h1>
+              <RoomAvailabilityCard setOpen={setOpen} assignTime={assignTime} />
+            </div>
           </div>
-          <div>
-            <VenueCard />
+          <div className="flex justify-end items-center w-full gap-5">
+            <Button
+              bgColor="bg-white"
+              textColor="text-black"
+              borderColor="border border-gray-200"
+              widthSize="w-auto"
+              onClick={() => {}}
+            >
+              <p>Cancel</p>
+            </Button>
+
+            <Button
+              bgColor="bg-primary-red"
+              textColor="text-white"
+              borderColor="border border-gray-200"
+              widthSize="w-30"
+              onClick={() => onConfirm(2)}
+            >
+              <p>Confirm</p>
+            </Button>
           </div>
         </div>
-
-        <div className="flex flex-col gap-5">
-          <h1 className="text-[24px] font-bold">Room Availability</h1>
-          <RoomAvailabilityCard />
+      ) : (
+        <div className="w-full mb-150 pb-5">
+          <NoAvailableBooking availableDateAndTime={availableDateAndTime} />
         </div>
-      </div>
-      <div className="flex justify-end items-center w-full gap-5">
-        <Button
-          bgColor="bg-white"
-          textColor="text-black"
-          addBoader={true}
-          widthSize="w-auto"
-          onClick={() => {}}
-        >
-          <p>Cancel</p>
-        </Button>
-
-        <Button
-          bgColor="bg-primary-red"
-          textColor="text-white"
-          addBoader={true}
-          widthSize="w-30"
-          onClick={() => onConfirm(2)}
-        >
-          <p>Confirm</p>
-        </Button>
-      </div>
+      )}
     </div>
   );
 }

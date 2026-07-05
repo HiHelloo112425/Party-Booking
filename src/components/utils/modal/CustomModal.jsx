@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Button from "../Button";
+import Button from "../../Button";
 
 function CustomModal({ isOpen, onClose, title, children, onConfirm }) {
   const [shouldRender, setShouldRender] = useState(isOpen);
@@ -47,7 +47,7 @@ function CustomModal({ isOpen, onClose, title, children, onConfirm }) {
           <Button
             bgColor="bg-white"
             textColor="text-black"
-            addBoader={true}
+            borderColor="border border-gray-200"
             widthSize="w-full"
             onClick={onClose}
           >
@@ -56,7 +56,7 @@ function CustomModal({ isOpen, onClose, title, children, onConfirm }) {
           <Button
             bgColor="bg-primary-red"
             textColor="text-white"
-            addBoader={true}
+            borderColor="border border-gray-200"
             widthSize="w-full"
             onClick={() => {
               onClose();

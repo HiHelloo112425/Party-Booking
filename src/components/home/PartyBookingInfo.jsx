@@ -1,8 +1,8 @@
-import HappyMeal from "../assets/happy-meal.svg";
-import VectorCircularLine from "../assets/vector-circular-line.svg";
-import PartyPopper from "../assets/party-popper.svg";
-import Button from "./Button";
-import InfoList from "../components/utils/InfoList.jsx";
+import HappyMeal from "../../assets/happy-meal.svg";
+import VectorCircularLine from "../../assets/vector-circular-line.svg";
+import PartyPopper from "../../assets/party-popper.svg";
+import Button from "../Button";
+import InfoList from "../../components/utils/InfoList.jsx";
 function PartyBookingInfo() {
   return (
     <div className="flex flex-col w-full bg-primary-gray">
@@ -35,7 +35,7 @@ function PartyBookingInfo() {
           <Button
             bgColor="bg-primary-red"
             textColor="text-white"
-            addBoader={false}
+            borderColor={false}
             className="h-full px-4 lg:px-[1.5vw] text-[14px] lg:text-[1vw] whitespace-nowrap"
           >
             Book a party now!

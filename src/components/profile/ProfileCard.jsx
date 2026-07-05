@@ -1,4 +1,4 @@
-import Profile from "../assets/profile.jpg";
+import Profile from "../../assets/profile.jpg";
 import { ChevronRight } from "lucide-react";
 
 function ProfileCard({ setProcess, activeProcess }) {

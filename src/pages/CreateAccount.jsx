@@ -1,9 +1,10 @@
 import McLog from "../assets/mcdo-logo.svg";
 import Button from "../components/Button.jsx";
 import { Check, X } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { useCreateAccount } from "../hooks/useCreateAccount.js";
+
 function CreateAccount() {
-      const navigate = useNavigate();
+  const { navigetToLogin } = useCreateAccount();
   return (
     <div className="flex flex-col justify-center items-center p-5 select-none">
       <div className="w-90 flex flex-col gap-5 animate-fade-up">
@@ -85,28 +86,31 @@ function CreateAccount() {
           <Button
             bgColor="bg-primary-red"
             textColor="text-white"
-            addBoader={true}
-            widthSize="w-full" 
-              onClick={() => {navigate("/login")}}
+            borderColor="border border-gray-200"
+            widthSize="w-full"
+            onClick={navigetToLogin}
           >
             Sign up
           </Button>
           <div className="text-text-gray text-center">
             <p>By signing in, you agree with </p>
             <p>
-              our{" "}
+              our
               <span className="text-[#1E87DB] underline cursor-pointer">
                 Terms and Conditions
-              </span>{" "}
-              and{" "}
+              </span>
+              and
               <span className="text-[#1E87DB] underline cursor-pointer">
-                Privacy Policy{" "}
+                Privacy Policy
               </span>
               .
             </p>
             <p className="pt-5 text-black">
-              Already have an account?{" "}
-              <span className="text-primary-yellow cursor-pointer font-bold" onClick={()=>{navigate("/login")}}>
+              Already have an account?
+              <span
+                className="text-primary-yellow cursor-pointer font-bold"
+                onClick={navigetToLogin}
+              >
                 Login
               </span>
             </p>

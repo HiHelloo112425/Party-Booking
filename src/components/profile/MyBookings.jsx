@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import BookingCard from "./utils/BookingCard";
+import BookingCard from "../utils/BookingCard";
 
 const TABS = ["Upcoming Bookings", "Past Booking", "Cancel Bookings"];
 

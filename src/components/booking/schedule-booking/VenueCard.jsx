@@ -1,4 +1,4 @@
-import McStore from "../../assets/mc-store.png";
+import McStore from "../../../assets/mc-store.png";
 function VenueCard() {
   return (
     <div className="w-full">

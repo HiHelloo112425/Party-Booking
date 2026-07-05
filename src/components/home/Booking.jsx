@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { MapPin, CalendarDays } from "lucide-react";
-import Button from "./Button";
-import Confetti from "../assets/confetti.svg";
-import Mlogo from "../assets/m-logo.svg";
-import FamilyImg from "../assets/family.svg";
-import McCelebration from "../assets/mcdo-celebration.svg";
-import BaloonLeft from "../assets/balloons-left.svg";
+import Button from "../Button";
+import Confetti from "../../assets/confetti.svg";
+import Mlogo from "../../assets/m-logo.svg";
+import FamilyImg from "../../assets/family.svg";
+import McCelebration from "../../assets/mcdo-celebration.svg";
+import BaloonLeft from "../../assets/balloons-left.svg";
+import { formatDate } from "../utils/helper/formatDate";
 
-function Booking({ bookPartyClick }) {
+function Booking({ bookPartyClick, updateSchedule, bookingSchedule }) {
   return (
     <div className="w-full h-[150vw] md:h-[70vw] lg:h-[40vw] overflow-hidden bg-light-gray">
       <div className="relative h-[150vw] md:h-[70vw] lg:h-[40vw]">
@@ -94,30 +95,43 @@ function Booking({ bookPartyClick }) {
             <div className="flex flex-col gap-5 w-60 lg:flex-row justify-center lg:justify-start items-stretch mt-20 lg:mt-[2vw] lg:w-auto h-12 lg:h-[3.5vw] lg:gap-0">
               {/* WHERE */}
               <div className="flex items-center border border-gray-200 rounded-sm bg-white h-full p-3">
-                <MapPin color="#48514f" className="mr-2" size={16} />
-                <input
-                  type="text"
-                  placeholder="Where?"
-                  className="focus:outline-none w-full lg:w-[8vw] h-full text-[14px] lg:text-[1vw]"
-                />
+                <div className="flex justify-center items-center  h-full">
+                  <MapPin color="#48514f" className="mr-2" size={16} />
+                </div>
+
+                <div className="flex justify-center items-center h-full pt-1">
+                  <input
+                    value={bookingSchedule.where}
+                    onChange={(e) => updateSchedule("where", e.target.value)}
+                    type="text"
+                    placeholder="Where?"
+                    className="focus:outline-none w-full lg:w-[8vw] text-[14px] lg:text-[1vw] leading-none"
+                  />
+                </div>
               </div>
               {/* WHEN */}
               <div className="flex items-center border border-gray-200 rounded-sm bg-white h-full p-3">
-                <CalendarDays color="#48514f" className="mr-2" size={16} />
-                <input
-                  type="text"
-                  placeholder="When?"
-                  onFocus={(e) => (e.target.type = "date")}
-                  onBlur={(e) => !e.target.value && (e.target.type = "text")}
-                  className="focus:outline-none w-full lg:w-[8vw] h-full text-[14px] lg:text-[1vw]"
-                />
+                <div className="flex justify-center items-center  h-full">
+                  <CalendarDays color="#48514f" className="mr-2" size={16} />
+                </div>
+                <div className="flex justify-center items-center h-full pt-1">
+                  <input
+                    value={formatDate(bookingSchedule.when)}
+                    onChange={(e) => updateSchedule("when", e.target.value)}
+                    type="text"
+                    placeholder="When?"
+                    onFocus={(e) => (e.target.type = "date")}
+                    onBlur={(e) => !e.target.value && (e.target.type = "text")}
+                    className="focus:outline-none w-full lg:w-[8vw] h-full text-[14px] lg:text-[1vw]"
+                  />
+                </div>
               </div>
               {/* BUTTON */}
               <div className="shrink-0 h-full flex justify-center">
                 <Button
                   bgColor="bg-primary-red"
                   textColor="text-white"
-                  addBoader={false}
+                  borderColor={false}
                   className="h-full px-4 lg:px-[1.5vw] text-[14px] lg:text-[1vw] whitespace-nowrap"
                   onClick={bookPartyClick}
                 >
@@ -129,7 +143,7 @@ function Booking({ bookPartyClick }) {
             {/* BOTTOM TEXT */}
             <div className="mt-auto pb-10 text-[12px] lg:text-[0.7vw] select-none">
               <p>
-                Party packages need a minimum of <b>30 guests</b> | A{" "}
+                Party packages need a minimum of <b>30 guests</b> | A
                 <b>Php 2,500 down payment</b> is required to secure booking at
                 selected venue
               </p>

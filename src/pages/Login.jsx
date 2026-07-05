@@ -1,35 +1,8 @@
 import McLog from "../assets/mcdo-logo.svg";
 import Button from "../components/Button.jsx";
-import React, { useRef, useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import ToastMessage from "../components/utils/ToastMessage.jsx";
-
-function useLogin() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [loginStatus, setLoginStatus] = useState(null);
-
-  function loginValidation() {
-    setLoginStatus(null);
-
-    setTimeout(() => {
-      if (email === "admin" && password === "admin") {
-        setLoginStatus("Login Success");
-      } else {
-        setLoginStatus("Invalid Email and Password");
-      }
-    }, 0);
-  }
-
-  return {
-    email,
-    setEmail,
-    password,
-    setPassword,
-    loginStatus,
-    loginValidation,
-  };
-}
+import ForgetPassword from "../pages/ForgetPassword.jsx";
+import { useLogin } from "../hooks/useLogin.js";
 
 function LoginPage() {
   const {
@@ -37,30 +10,18 @@ function LoginPage() {
     setEmail,
     password,
     setPassword,
-    loginStatus,
-    loginValidation,
+    loginValidationAndNavigate,
+    toastRef,
+    navigateToSignUp,
+    navigateToForgetPassword,
   } = useLogin();
-  const navigate = useNavigate();
-  const toastRef = useRef();
-
-  useEffect(() => {
-    if (loginStatus != null) {
-      if (loginStatus === "Login Success") {
-        setTimeout(() => {
-          navigate("/profile");
-        }, 0);
-      } else {
-        toastRef.current.notify();
-      }
-    }
-  }, [loginStatus, navigate]);
 
   return (
     <div className="flex flex-col justify-center pt-10 items-center select-none">
       <ToastMessage
         ref={toastRef}
         toastStatus={"error"}
-        toastMessage={loginStatus}
+        toastMessage={"Invalid Email and Password"}
       />
 
       <div className="w-90 flex flex-col gap-10 animate-fade-up border border-gray-200 px-5 py-10 rounded-2xl shadow-lg">
@@ -94,19 +55,19 @@ function LoginPage() {
         </div>
         <div className="flex flex-col gap-3">
           <div>
-            <p className="text-[14px] font-bold text-primary-red cursor-pointer">
-              Forget password
-            </p>
+            <Button onClick={navigateToForgetPassword}>
+              <p className="text-[14px] font-bold text-primary-red cursor-pointer">
+                Forget password
+              </p>
+            </Button>
           </div>
           <div>
             <Button
               bgColor="bg-primary-red"
               textColor="text-white"
-              addBoader={true}
+              borderColor="border border-gray-200"
               widthSize="w-full"
-              onClick={() => {
-                loginValidation();
-              }}
+              onClick={loginValidationAndNavigate}
             >
               Log in
             </Button>
@@ -114,12 +75,10 @@ function LoginPage() {
         </div>
         <div>
           <p>
-            Don't have an account?{" "}
+            Don't have an account?
             <span
               className="font-bold text-primary-yellow cursor-pointer"
-              onClick={() => {
-                navigate("/signup");
-              }}
+              onClick={navigateToSignUp}
             >
               Sign up
             </span>

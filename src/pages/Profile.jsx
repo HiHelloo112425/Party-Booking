@@ -1,26 +1,29 @@
-import ProfileCard from "../components/ProfileCard";
-import ViewProfile from "../components/ViewProfile";
-import MyBookings from "../components/MyBookings";
+import ProfileCard from "../components/profile/ProfileCard";
+import ViewProfile from "../components/profile/ViewProfile";
+import MyBookings from "../components/profile/MyBookings";
 import Button from "../components/Button";
 import McDoLogo from "../assets/mcdo-logo.svg";
-import { Mail, Phone } from "lucide-react";
-import { Menu } from "lucide-react";
-import { useNavigate } from "react-router-dom";
-import React, { useState, useEffect } from "react";
+import { Mail, Phone, Menu } from "lucide-react";
+import { useEffect } from "react";
+import { useProfile } from "../hooks/useProfile";
 
 function Profile() {
-  const [process, setProcess] = useState("View Profile");
-  const [folder, setFolder] = useState("Upcoming Bookings");
-  const navigate = useNavigate();
+  const {
+    navigateToProfile,
+    navigateToLogin,
+    setProcess,
+    process,
+    folder,
+    setFolder,
 
-  function handleBack() {
-    navigate("/profile");
-  }
-
+    selectedItem,
+    setSelectedItem,
+  } = useProfile();
+console.log(selectedItem)
   useEffect(() => {
     window.history.pushState(null, "", window.location.href);
-    window.addEventListener("popstate", handleBack);
-    return () => window.removeEventListener("popstate", handleBack);
+    window.addEventListener("popstate", navigateToProfile);
+    return () => window.removeEventListener("popstate", navigateToProfile);
   });
 
   return (
@@ -49,8 +52,8 @@ function Profile() {
           <Button
             bgColor="bg-white"
             textColor="text-primary-red"
-            addBoader={true}
-            onClick={() => navigate("/login")}
+            borderColor="border border-gray-200"
+            onClick={navigateToLogin}
           >
             Logout
           </Button>
@@ -74,11 +77,22 @@ function Profile() {
         <div className="w-full lg:w-auto flex flex-col select-none">
           <div className="flex flex-col gap-5">
             <h1 className="text-[24px] font-bold">My Account</h1>
-            <ProfileCard setProcess={setProcess} activeProcess={process} />
+            <ProfileCard
+              setProcess={(process) => {
+                setProcess(process);
+                console.log(process);
+              }}
+              activeProcess={process}
+            />
           </div>
         </div>
         <div className="w-full min-h-0">
-          {process === "View Profile" && <ViewProfile />}
+          {process === "View Profile" && (
+            <ViewProfile
+              selectedItem={selectedItem}
+              setSelectedItem={(item) => setSelectedItem(item)}
+            />
+          )}
           {process === "My Booking" && (
             <MyBookings setFolder={setFolder} activeFolder={folder} />
           )}
